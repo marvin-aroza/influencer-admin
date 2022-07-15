@@ -10,7 +10,7 @@
                   <thead>
                       <tr>
                           <th>Name</th>
-                          <th>Emaiil</th>
+                          <th>Email</th>
                           <th>Status</th>
                           <th>Action</th>
                       </tr>
@@ -18,20 +18,20 @@
                   <tfoot>
                       <tr>
                           <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Age</th>
+                          <th>Email</th>
+                          <th>Status</th>
+                          <th>Action</th>
                       </tr>
                   </tfoot>
                   <tbody>
-                      <tr>
-                          <td>Ashton Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>
+                      <tr *ngFor="let admin of adminList">
+                          <td>{{ admin.username }}</td>
+                          <td>{{ admin.email }}</td>
+                          <td>{{ admin.status }}</td>
                           <td>
-                            <button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                            <button class="btn btn-warning"><i class="fas fa-cross"></i></button>
-                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            <button [routerLink]="['/admin/admin', admin._id]" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                            <button (click)="changeStatus(admin)" class="btn" [ngClass]="{'btn-warning': admin.isActive, 'btn-success': !admin.isActive}"><i class="fas" [ngClass]="{'fa-times': admin.isActive, 'fa-check': !admin.isActive}"></i></button>
+                            <button (click)="deleteAdmin(admin)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                           </td>
                       </tr>
                   </tbody>

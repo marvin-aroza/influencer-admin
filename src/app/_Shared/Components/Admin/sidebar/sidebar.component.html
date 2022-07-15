@@ -1,91 +1,170 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-      <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-      </div>
-      <div class="sidebar-brand-text mx-3">ADMIN PORTAL</div>
+<ul
+  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+  id="accordionSidebar"
+>
+  <a
+    class="sidebar-brand d-flex align-items-center justify-content-center"
+    href="index.html"
+  >
+    <div class="sidebar-brand-icon rotate-n-15">
+      <i class="fas fa-laugh-wink"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3">ADMIN PORTAL</div>
   </a>
 
-  <hr class="sidebar-divider my-0">
+  <hr class="sidebar-divider my-0" />
 
-  <li class="nav-item active">
+  <div *ngIf="sidebarConfig; else Influencer">
+    <li class="nav-item active">
       <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-  </li>
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a
+      >
+    </li>
 
-  <hr class="sidebar-divider">
+    <hr class="sidebar-divider" />
 
-  <div class="sidebar-heading">
-      Users
-  </div>
+    <div class="sidebar-heading">Users</div>
 
-  <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-          aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Admin</span>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseTwo"
+        aria-expanded="true"
+        aria-controls="collapseTwo"
+      >
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Admin</span>
       </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" [routerLink]="['admin/']">List</a>
-              <a class="collapse-item" [routerLink]="['admin/add']">Add</a>
-          </div>
+      <div
+        id="collapseTwo"
+        class="collapse"
+        aria-labelledby="headingTwo"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" [routerLink]="['admin/']">List</a>
+          <a class="collapse-item" [routerLink]="['admin/add']">Add</a>
+        </div>
       </div>
-  </li>
+    </li>
 
-  <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInfluencers"
-          aria-expanded="true" aria-controls="collapseInfluencers">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Influencers</span>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseInfluencers"
+        aria-expanded="true"
+        aria-controls="collapseInfluencers"
+      >
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Influencers</span>
       </a>
-      <div id="collapseInfluencers" class="collapse" aria-labelledby="headingUtilities"
-          data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" [routerLink]="['influencer/']">List</a>
-          </div>
+      <div
+        id="collapseInfluencers"
+        class="collapse"
+        aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" [routerLink]="['influencer/']">List</a>
+        </div>
       </div>
-  </li>
+    </li>
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
-        aria-expanded="true" aria-controls="collapseUsers">
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseUsers"
+        aria-expanded="true"
+        aria-controls="collapseUsers"
+      >
         <i class="fas fa-fw fa-wrench"></i>
         <span>Users</span>
-    </a>
-    <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
+      </a>
+      <div
+        id="collapseUsers"
+        class="collapse"
+        aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar"
+      >
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" [routerLink]="['user/']">List</a>
         </div>
-    </div>
-</li>
+      </div>
+    </li>
 
-  <hr class="sidebar-divider">
+    <hr class="sidebar-divider" />
 
-  <div class="sidebar-heading">
-      Activities
+    <div class="sidebar-heading">Activities</div>
+
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapsePages"
+        aria-expanded="true"
+        aria-controls="collapsePages"
+      >
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Collab</span>
+      </a>
+      <div
+        id="collapsePages"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" [routerLink]="['collab/request']">Request</a>
+          <a class="collapse-item" [routerLink]="['collab/connection']"
+            >Connection</a
+          >
+        </div>
+      </div>
+    </li>
   </div>
 
-  <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-          aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Collab</span>
-      </a>
-      <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" [routerLink]="['collab/request']">Request</a>
-            <a class="collapse-item" [routerLink]="['collab/connection']">Connection</a>
-          </div>
-      </div>
-  </li>
+  <<ng-template #Influencer>
+    <div class="sidebar-heading">Activities</div>
 
-  <hr class="sidebar-divider d-none d-md-block">
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapsePages"
+        aria-expanded="true"
+        aria-controls="collapsePages"
+      >
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Collab</span>
+      </a>
+      <div
+        id="collapsePages"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" [routerLink]="['collab/request']">Request</a>
+          <a class="collapse-item" [routerLink]="['collab/connection']"
+            >Connection</a
+          >
+        </div>
+      </div>
+    </li>
+  </ng-template>
+
+  <hr class="sidebar-divider d-none d-md-block" />
 
   <div class="text-center d-none d-md-inline">
-      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
   </div>
 </ul>

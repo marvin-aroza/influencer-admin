@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://influencer-node-api.herokuapp.com/'
+  apiUrl: 'https://influencermarketing-node-api.herokuapp.com/'
 };
 
 /*
