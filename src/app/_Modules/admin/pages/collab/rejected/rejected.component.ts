@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { CollabService } from 'src/app/_Core/Services/collab.service';
 
 @Component({
-  selector: 'app-request',
-  templateUrl: './request.component.html',
-  styleUrls: ['./request.component.scss']
+  selector: 'app-rejected',
+  templateUrl: './rejected.component.html',
+  styleUrls: ['./rejected.component.scss']
 })
-export class RequestComponent implements OnInit {
+export class RejectedComponent implements OnInit {
 
   // variables
   collabList: any[] = [];
@@ -18,7 +18,7 @@ export class RequestComponent implements OnInit {
     this.getCollabList();
   }
 
-  getCollabList(filter = 'Requested') {
+  getCollabList(filter = 'Rejected') {
     this.collabService.getCollabList(filter).subscribe((res) => {
       if (res.status) {
         this.collabList = res.data

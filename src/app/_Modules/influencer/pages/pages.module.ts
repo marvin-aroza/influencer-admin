@@ -5,13 +5,15 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { RequestComponent } from './request/request.component';
 import { ConnectionsComponent } from './connections/connections.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RejectedComponent } from './rejected/rejected.component';
 
 
 @NgModule({
   declarations: [
     RequestComponent,
     ConnectionsComponent,
-    ProfileComponent
+    ProfileComponent,
+    RejectedComponent
   ],
   imports: [
     CommonModule,

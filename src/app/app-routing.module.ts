@@ -10,11 +10,11 @@ const routes: Routes = [
     path: 'influencer',
     loadChildren: () => import(`./_Modules/influencer/influencer.module`).then(m => m.InfluencerModule)
   },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'admin'
-  }
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: 'admin'
+  // }
 ];
 
 @NgModule({

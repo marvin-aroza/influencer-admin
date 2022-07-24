@@ -47,14 +47,15 @@ export class AuthService {
 
   //user details in subject behaviour
   saveLoginDetails(userData: User) {
-    this.saveToken(userData.token, userData.role);
+    this.saveToken(userData.token, userData.role, userData.id);
     this.userData.next(userData);
   }
 
   //save token in localstorage
-  saveToken(token: string, role: string) {
+  saveToken(token: string, role: string, id:string) {
     localStorage.setItem('token', token);
     localStorage.setItem('role', role);
+    localStorage.setItem('id', id);
   }
 
   //get user token from localstorage
@@ -67,9 +68,14 @@ export class AuthService {
     return localStorage.getItem('role');
   }
 
+  //get user id
+  getId() {
+    return localStorage.getItem('id');
+  }
+
   //logout
-  logout() {
+  logout(user:string|null) {
     localStorage.clear();
-    this.router.navigate(['admin/login']);
+    this.router.navigate([user+'/login']);
   }
 }

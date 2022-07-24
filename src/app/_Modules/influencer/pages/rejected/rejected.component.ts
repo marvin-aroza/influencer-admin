@@ -4,11 +4,11 @@ import { CollabService } from 'src/app/_Core/Services/collab.service';
 import { AuthService } from 'src/app/_Core/Services/auth.service'
 
 @Component({
-  selector: 'app-connections',
-  templateUrl: './connections.component.html',
-  styleUrls: ['./connections.component.scss']
+  selector: 'app-rejected',
+  templateUrl: './rejected.component.html',
+  styleUrls: ['./rejected.component.scss']
 })
-export class ConnectionsComponent implements OnInit {
+export class RejectedComponent implements OnInit {
 
   // variables
   collabList: any[] = [];
@@ -20,12 +20,13 @@ export class ConnectionsComponent implements OnInit {
     this.getCollabList();
   }
 
-  getCollabList(filter = 'Accepted') {
+  getCollabList(filter = 'Rejected') {
     this.collabService.getCollabById(this.authService.getId(),filter).subscribe((res) => {
       if (res.status) {
         this.collabList = res.data
       }
     });
   }
+
 
 }

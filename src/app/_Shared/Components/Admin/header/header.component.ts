@@ -18,7 +18,8 @@ export class HeaderComponent implements OnInit {
 
   //logout session
   logout() {
-    this.authService.logout();
+    let role = this.authService.getRole() || '';
+    this.authService.logout(role.toLowerCase());
   }
 
 }

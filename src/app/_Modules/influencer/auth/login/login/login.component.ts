@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(body).subscribe(res => {
         if(res.status) {
           this.loginForm.reset();
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/influencer']);
         }
       });
     }
