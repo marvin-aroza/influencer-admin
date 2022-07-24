@@ -30,20 +30,20 @@ export class AdminService {
   }
 
   //add user
-  // addAdmin(formData: any) {
-  //   let headers: HttpHeaders = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   headers = headers.append('Accept', 'application/json');
-  //   return this.http
-  //     .post<any>(`${environment.apiUrl}auth/register`, formData, {
-  //       headers: headers,
-  //     })
-  //     .pipe(
-  //       map((result: any) => {
-  //         return result;
-  //       })
-  //     );
-  // }
+  addAdmin(formData: any) {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers = headers.append('Accept', 'application/json');
+    return this.http
+      .post<any>(`${environment.apiUrl}auth/register`, formData, {
+        headers: headers,
+      })
+      .pipe(
+        map((result: any) => {
+          return result;
+        })
+      );
+  }
 
   //get user by id
   getAdminById(id: any) {
@@ -56,6 +56,8 @@ export class AdminService {
       })
       .pipe(
         map((result: any) => {
+          result.data.status = result.data.isActive ? 'Active': 'Inactive'
+          result.data.profImage = result.data.profImage ? result.data.profImage: 'assets/assets/img/undraw_profile.svg'
           return result;
         })
       );

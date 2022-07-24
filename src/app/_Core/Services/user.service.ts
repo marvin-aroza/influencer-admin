@@ -55,6 +55,8 @@ export class UserService {
       })
       .pipe(
         map((result: any) => {
+          result.data.status = result.data.isActive ? 'Active': 'Inactive'
+          result.data.profImage = result.data.profImage ? result.data.profImage: 'assets/assets/img/undraw_profile.svg'
           return result;
         })
       );

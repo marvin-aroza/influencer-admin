@@ -3,34 +3,51 @@
       <div class="text-center">
           <h1 class="h4 text-gray-900 mb-4">Add Admin</h1>
       </div>
-      <form class="user">
+      <form class="user" *ngIf="isLoaded" (ngSubmit)="addAdmin()" [formGroup]="form">
           <div class="form-group row">
               <div class="col-sm-6 mb-3 mb-sm-0">
                   <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                      placeholder="First Name">
+                      placeholder="First Name" formControlName="firstname">
+                      <div *ngIf="isSubmitted && f['firstname'].errors" class="error">
+                        <p *ngIf="f['firstname'].errors['required']">*Firstname is required</p>
+                      </div>
               </div>
               <div class="col-sm-6">
                   <input type="text" class="form-control form-control-user" id="exampleLastName"
-                      placeholder="Last Name">
+                      placeholder="Last Name" formControlName="lastname">
+                      <div *ngIf="isSubmitted && f['lastname'].errors" class="error">
+                        <p *ngIf="f['lastname'].errors['required']">*Lastname is required</p>
+                      </div>
               </div>
           </div>
           <div class="form-group">
               <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                  placeholder="Email Address">
+                  placeholder="Email Address"  formControlName="email">
+                  <div *ngIf="isSubmitted && f['email'].errors" class="error">
+                    <p *ngIf="f['email'].errors['required']">*Email is required</p>
+                    <p *ngIf="f['email'].errors['email']">*Enter valid email</p>
+                  </div>
           </div>
           <div class="form-group row">
               <div class="col-sm-6 mb-3 mb-sm-0">
                   <input type="password" class="form-control form-control-user"
-                      id="exampleInputPassword" placeholder="Password">
+                      id="exampleInputPassword" placeholder="Password"  formControlName="password">
+                      <div *ngIf="isSubmitted && f['password'].errors" class="error">
+                        <p *ngIf="f['password'].errors['required']">*Password is required</p>
+                      </div>
               </div>
               <div class="col-sm-6">
                   <input type="password" class="form-control form-control-user"
-                      id="exampleRepeatPassword" placeholder="Repeat Password">
+                      id="exampleRepeatPassword" placeholder="Repeat Password"  formControlName="confirmPassword">
+                      <div *ngIf="isSubmitted && f['confirmPassword'].errors" class="error">
+                        <p *ngIf="f['confirmPassword'].errors['required']">*Confirm Password is required</p>
+                        <p *ngIf="f['confirmPassword'].errors['mismatch']">*Password must match</p>
+                      </div>
               </div>
           </div>
-          <a (click)="addAdmin()" class="btn btn-primary btn-user btn-block">
+          <button type="submit" class="btn btn-primary btn-user btn-block">
               Add Admin
-          </a>
+          </button>
       </form>
   </div>
 </div>
