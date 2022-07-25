@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">User Details</h1>
+  <div class="card shadow mb-4" *ngIf="userDetails">
+    <!-- <div class="container-fluid">
+      <div class="row login_box"> -->
+        <div class="col-md-12 col-xs-12" align="center">
+          <div class="line"><h3>12 : 30 AM</h3></div>
+          <div class="outter">
+            <img
+              [src]="userDetails.profImage"
+              class="image-circle"
+            />
+          </div>
+          <h1 class="title">{{ userDetails.firstname }} {{ userDetails.lastname }}</h1>
+          <span class="subtitle">{{ userDetails.status }}</span>
+        </div>
+        <div class="col-md-12 col-xs-6 follow line" align="center">
+          <h3>
+            {{ userDetails.email }}
+            <!-- <br />
+            <span>FOLLOWERS</span> -->
+          </h3>
+        </div>
+        <div class="col-md-12 col-xs-6 follow line" align="center">
+          <h3>
+            {{ userDetails.phone }}
+            <!-- <br />
+            <span>FOLLOWERS</span> -->
+          </h3>
+        </div>
+
+        <div class="col-md-12 col-xs-12 login_control">
+          <!-- <div class="control">
+            <div class="label">Email Address</div>
+            <input type="text" class="form-control" value="admin@gmail.com" />
+          </div>
+
+          <div class="control">
+            <div class="label">Password</div>
+            <input type="password" class="form-control" value="123456" />
+          </div> -->
+          <div align="center">
+            <button class="btn btn-orange" (click)="changeStatus()">
+              {{ userDetails.isActive ? 'Deactivate' : 'Activate'}}
+            </button>
+          </div>
+        </div>
+      <!-- </div>
+    </div> -->
+  </div>
+</div>

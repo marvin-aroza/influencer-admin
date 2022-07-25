@@ -11,6 +11,14 @@ const routes: Routes = [
     loadChildren: () => import(`./user/user.module`).then(m => m.UserModule)
   },
   {
+    path: 'influencer',
+    loadChildren: () => import(`./influencers/influencers.module`).then(m => m.InfluencersModule)
+  },
+  {
+    path: 'collab',
+    loadChildren: () => import(`./collab/collab.module`).then(m => m.CollabModule)
+  },
+  {
     path: '',
     loadChildren: () => import(`./home/home.module`).then(m => m.HomeModule)
   }

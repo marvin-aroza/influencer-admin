@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">Collab Connection List</h1>
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Connections</h6>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+            <ng-template #noList>
+              <p>No connections yet</p>
+            </ng-template>
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" *ngIf="collabList.length > 0; else noList">
+                  <thead>
+                      <tr>
+                          <th>Requestor Name</th>
+                          <th>Influencer Name</th>
+                          <th>Requested on</th>
+                      </tr>
+                  </thead>
+                  <tfoot>
+                      <tr>
+                        <th>Requestor Name</th>
+                        <th>Influencer Name</th>
+                        <th>Requested on</th>
+                      </tr>
+                  </tfoot>
+                  <tbody>
+                      <tr *ngFor="let collab of collabList">
+                          <td>{{ collab.user[0].username }}</td>
+                          <td>{{ collab.influencer[0].username }}</td>
+                          <td>{{ collab.status }}</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+</div>

@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">Influencer list</h1>
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Influencers</h6>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+              <ng-template #noList>
+                <p>No influencers found</p>
+              </ng-template>
+
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"  *ngIf="influencerList && influencerList.length > 0; else noList">
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tfoot>
+                      <tr>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>status</th>
+                          <th>Action</th>
+                      </tr>
+                  </tfoot>
+                  <tbody>
+                      <tr *ngFor="let influencer of influencerList">
+                          <td>{{ influencer['firstname'] }} {{ influencer['lastname'] }}</td>
+                          <td>{{ influencer['email'] }}</td>
+                          <td>{{ influencer['status'] }}</td>
+                          <td>
+                            <button [routerLink]="['/admin/influencer', influencer['_id']]" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                            <button (click)="changeStatus(influencer)" class="btn" [ngClass]="{'btn-warning': influencer['isActive'], 'btn-success': !influencer['isActive']}"><i class="fas" [ngClass]="{'fa-times': influencer['isActive'], 'fa-check': !influencer['isActive']}"></i></button>
+                            <button (click)="deleteAdmin(influencer)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+</div>

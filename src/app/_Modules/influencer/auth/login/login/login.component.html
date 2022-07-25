@@ -1,0 +1,147 @@
+<!-- <div class="login-box">
+  <div class="login-logo">
+    <b>Influencer Admin</b>
+  </div>
+  <div class="login-box-body" *ngIf="loadForm">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group has-feedback">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <div class="error-div" *ngIf="isSubmitted && f['email']?.errors">
+          <p *ngIf="f['email']?.errors?.['required']">*Email is required</p>
+        </div>
+      </div>
+      <div class="form-group has-feedback input-icons">
+        <input
+          [type]="fieldTextType ? 'text' : 'password'"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div class="input-group-append eyeselector">
+          <span class="input-group-text">
+            <span class="form-control-feedback"></span>
+            <i
+              class="fa input-field"
+              [ngClass]="{
+                'fa-eye-slash': !fieldTextType,
+                'fa-eye': fieldTextType
+              }"
+              (click)="toggleFieldTextType()"
+            ></i>
+          </span>
+        </div>
+        <div class="error-div" *ngIf="isSubmitted && f['password']?.errors">
+          <p *ngIf="f['password']?.errors?.['required']">
+            *Password is required
+          </p>
+        </div>
+      </div>
+
+      <div class="row center-div">
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">
+            Log In
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<div class="container">
+  <!-- Outer Row -->
+  <div class="row justify-content-center" *ngIf="loadForm">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                </div>
+                <form class="user" [formGroup]="loginForm" (ngSubmit)="login()">
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control form-control-user"
+                      id="exampleInputEmail"
+                      aria-describedby="emailHelp"
+                      formControlName="email"
+                      placeholder="Enter Email Address..."
+                    />
+                    <div
+                      class="error-div"
+                      *ngIf="isSubmitted && f['email']?.errors"
+                    >
+                      <p *ngIf="f['email']?.errors?.['required']">
+                        *Email is required
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-group password-div">
+                    <input
+                      [type]="fieldTextType ? 'text' : 'password'"
+                      class="form-control form-control-user"
+                      id="exampleInputPassword"
+                      placeholder="Password"
+                      formControlName="password"
+                    />
+                    <div class="input-group-append eyeselector">
+                      <span class="input-group-text">
+                        <span class="form-control-feedback"></span>
+                        <i
+                          class="fa input-field"
+                          [ngClass]="{
+                            'fa-eye-slash': !fieldTextType,
+                            'fa-eye': fieldTextType
+                          }"
+                          (click)="toggleFieldTextType()"
+                        ></i>
+                      </span>
+                    </div>
+                    <div
+                      class="error-div"
+                      *ngIf="isSubmitted && f['password']?.errors"
+                    >
+                      <p *ngIf="f['password']?.errors?.['required']">
+                        *Password is required
+                      </p>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div> -->
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-user btn-block"
+                  >
+                    Login
+                  </button>
+                </form>
+                <hr />
+                <div class="text-center">
+                  <a class="small" href="forgot-password.html"
+                    >Forgot Password?</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

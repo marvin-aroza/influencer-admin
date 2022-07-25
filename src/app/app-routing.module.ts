@@ -7,9 +7,14 @@ const routes: Routes = [
     loadChildren: () => import(`./_Modules/admin/admin.module`).then(m => m.AdminModule)
   },
   {
-    path: '',
-    loadChildren: () => import(`./_Modules/user/user.module`).then(m => m.UserModule)
-  }
+    path: 'influencer',
+    loadChildren: () => import(`./_Modules/influencer/influencer.module`).then(m => m.InfluencerModule)
+  },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: 'admin'
+  // }
 ];
 
 @NgModule({
