@@ -50,7 +50,7 @@ export class UserService {
     headers.append('Content-Type', 'application/json');
     headers = headers.append('Accept', 'application/json');
     return this.http
-      .get<any>(`${environment.apiUrl}user/${id}`, {
+      .get<any>(`${environment.apiUrl}influencer/${id}`, {
         headers: headers,
       })
       .pipe(
@@ -68,7 +68,21 @@ export class UserService {
     headers.append('Content-Type', 'application/json');
     headers = headers.append('Accept', 'application/json');
     return this.http
-      .patch<any>(`${environment.apiUrl}user/${id}`, formData, {
+      .patch<any>(`${environment.apiUrl}admin/${id}`, formData, {
+        headers: headers,
+      })
+      .pipe(
+        map((result: any) => {
+          return result;
+        })
+      );
+  }
+  updateInfluencer(formData: any, id: any) {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers = headers.append('Accept', 'application/json');
+    return this.http
+      .patch<any>(`${environment.apiUrl}influencer/${id}`, formData, {
         headers: headers,
       })
       .pipe(
@@ -116,7 +130,22 @@ export class UserService {
     headers.append('Content-Type', 'application/json');
     headers = headers.append('Accept', 'application/json');
     return this.http
-      .patch<any>(`${environment.apiUrl}user/profile-upload/${id}`, formData, {
+      .post<any>(`${environment.apiUrl}common/upload-profile-image/${id}`, formData, {
+        headers: headers,
+      })
+      .pipe(
+        map((result: any) => {
+          return result;
+        })
+      );
+  }
+
+  additionalInfo(formData: any) {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers = headers.append('Accept', 'application/json');
+    return this.http
+      .post<any>(`${environment.apiUrl}influencer/update-profile-additional`, formData, {
         headers: headers,
       })
       .pipe(
