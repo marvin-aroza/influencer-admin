@@ -6,6 +6,7 @@ import { RequestComponent } from './request/request.component';
 import { ConnectionsComponent } from './connections/connections.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RejectedComponent } from './rejected/rejected.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { RejectedComponent } from './rejected/rejected.component';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }
