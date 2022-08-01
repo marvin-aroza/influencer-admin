@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://influencer-node-api.herokuapp.com/'
+  apiUrl: 'https://influencermarketing-node-api.herokuapp.com/'
 };
