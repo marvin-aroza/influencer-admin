@@ -27,7 +27,7 @@ export class ViewComponent implements OnInit {
   getInfluencerDetails() {
     this.influencerService.getAdminById(this.influencerId).subscribe(res => {
       if(res.status) {
-        this.inlfuencerDetails = res.data;
+        this.inlfuencerDetails = res.data[0];
       }
     });
   }
