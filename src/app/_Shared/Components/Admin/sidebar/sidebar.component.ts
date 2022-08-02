@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
 
   // variables
   sidebarConfig: boolean = false;
+  type = 'INFLUENCER'
 
   constructor(
     private router: Router,
@@ -21,6 +22,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     if(this.authService.getRole() === 'Admin') {
       this.sidebarConfig = true;
+      this.type = 'ADMIN'
     }
   }
 
