@@ -36,4 +36,12 @@ export class RequestComponent implements OnInit {
     });
   }
 
+  reject(id:any) {
+    this.collabService.acceptCollab(id).subscribe(res => {
+      if(res.status) {
+        this.ngOnInit();
+      }
+    });
+  }
+
 }

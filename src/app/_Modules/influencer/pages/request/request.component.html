@@ -31,7 +31,8 @@
                           <td>{{ collab.user[0].username }}</td>
                           <td>{{ collab.influencer[0].username }}</td>
                           <td>{{ collab.status }}</td>
-                          <td><button (click)="accept(collab._id)" class="btn btn-primary"><i class="fas fa-cross"></i></button></td>
+                          <td><button (click)="accept(collab._id)" class="btn btn-success"><i class="fas fa-check"></i></button>
+                            <button (click)="reject(collab._id)" class="btn btn-danger"><i class="fas fa-times"></i></button></td>
                       </tr>
                   </tbody>
               </table>
