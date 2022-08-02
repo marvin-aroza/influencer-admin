@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LandingComponent } from './_Shared/Components/landing/landing.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
     path: 'influencer',
     loadChildren: () => import(`./_Modules/influencer/influencer.module`).then(m => m.InfluencerModule)
   },
+  {
+    path: '',
+    component: LandingComponent
+  }
   // {
   //   path: '',
   //   pathMatch: 'full',

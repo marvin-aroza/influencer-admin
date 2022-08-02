@@ -9,9 +9,12 @@ import { AuthService } from 'src/app/_Core/Services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  userdetails:any;
   constructor(
     private authService: AuthService
-  ) { }
+  ) {
+    this.getDetails()
+   }
 
   ngOnInit(): void {
   }
@@ -20,6 +23,14 @@ export class HeaderComponent implements OnInit {
   logout() {
     let role = this.authService.getRole() || '';
     this.authService.logout(role.toLowerCase());
+  }
+
+  getimage(details:any) {
+    return details.profImage ? details.profImage : 'assets/assets/img/undraw_profile.svg'
+  }
+
+  getDetails() {
+    this.userdetails = this.authService.getUserDetails();
   }
 
 }
