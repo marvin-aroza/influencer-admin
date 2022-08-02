@@ -37,7 +37,7 @@ export class RequestComponent implements OnInit {
   }
 
   reject(id:any) {
-    this.collabService.acceptCollab(id).subscribe(res => {
+    this.collabService.rejectCollab(id).subscribe(res => {
       if(res.status) {
         this.ngOnInit();
       }
